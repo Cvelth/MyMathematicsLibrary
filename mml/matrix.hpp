@@ -213,7 +213,7 @@ namespace mml {
 
 		basic_matrix<T, R, C> const operator-() const {
 			basic_matrix<T, R, C> res;
-			for (size_t i = 0; i < S; i++)
+			for (size_t i = 0; i < R; i++)
 				res.data[i] = -data[i];
 			return res;
 		}
@@ -288,7 +288,7 @@ namespace mml {
 		basic_matrix<decltype(q / v[0][0]), R, C> res{v};
 		for (size_t r = 0; r < R; r++)
 			for (size_t c = 0; c < C; c++)
-				data[r][c] = q / data[r][c];
+				res.data[r][c] = q / v.data[r][c];
 		return res;
 	}
 
